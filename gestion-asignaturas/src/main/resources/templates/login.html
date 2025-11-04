@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Colegio - Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{css/styles.css}"> 
+</head>
+<body class="login-page">
+    
+    <div class="container d-flex align-items-center justify-content-center min-vh-100">
+        <div class="row w-100 justify-content-center">
+            <div class="col-auto"> 
+                <div class="card login-card">
+                    <div class="card-body">
+                        <h3 class="text-center mb-4 fw-bold text-primary">Acceso al Sistema 📚</h3>
+                        
+                        <form th:action="@{/login}" method="post">
+                            
+                            <div th:if="${param.error}" class="alert alert-danger" role="alert">
+                                Usuario o contraseña incorrectos.
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Usuario (rector/docente1/estudiante)</label>
+                                <input type="text" id="username" name="username" class="form-control" required autofocus>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="password" class="form-label">Contraseña</label>
+                                <input type="password" id="password" name="password" class="form-control" required>
+                            </div>
+                            
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary btn-lg">Iniciar Sesión</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
